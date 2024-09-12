@@ -10,7 +10,6 @@ import org.firstinspires.ftc.robotcore.external.Telemetry;
 
 @TeleOp(name="Strafer controls", group="Tele")
 public class StraferTeleOp extends LinearOpMode {
-
     @Override
     public void runOpMode() {
         // Define and Initialize Motors
