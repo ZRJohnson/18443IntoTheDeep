@@ -14,10 +14,10 @@ public class StraferTeleOp extends LinearOpMode {
     public void runOpMode() {
         // Define and Initialize Motors
         // Make sure your ID's match your configuration
-        frontLeft = hardwareMap.get(DcMotor.class, "lf");
-        frontRight = hardwareMap.get(DcMotor.class, "rf");
-        backLeft = hardwareMap.get(DcMotor.class, "lb");
-        backRight = hardwareMap.get(DcMotor.class, "rb");
+        DcMotor frontLeft = hardwareMap.get(DcMotor.class, "lf");
+        DcMotor frontRight = hardwareMap.get(DcMotor.class, "rf");
+        DcMotor backLeft = hardwareMap.get(DcMotor.class, "lb");
+        DcMotor backRight = hardwareMap.get(DcMotor.class, "rb");
 
         // Reverse one side of the motors
         // If it goes in reverse, reverse the other side.
