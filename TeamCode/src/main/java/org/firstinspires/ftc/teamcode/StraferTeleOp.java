@@ -7,8 +7,7 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 
 import org.firstinspires.ftc.robotcore.external.Telemetry;
-
-@TeleOp(name="Strafer controls", group="Tele")
+@TeleOp(name="Strafer_Controls", group="Tele")
 public class StraferTeleOp extends LinearOpMode {
     @Override
     public void runOpMode() {
