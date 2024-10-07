@@ -17,7 +17,7 @@ public class StraferTeleOp extends LinearOpMode {
         DcMotor frontRight = hardwareMap.get(DcMotor.class, "rf");
         DcMotor backLeft = hardwareMap.get(DcMotor.class, "lb");
         DcMotor backRight = hardwareMap.get(DcMotor.class, "rb");
-
+        
         // Reverse one side of the motors
         // If it goes in reverse, reverse the other side.
         frontLeft.setDirection(DcMotorSimple.Direction.REVERSE);
