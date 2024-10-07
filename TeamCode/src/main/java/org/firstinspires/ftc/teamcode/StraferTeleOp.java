@@ -4,6 +4,7 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 
 import org.firstinspires.ftc.robotcore.external.Telemetry;
@@ -17,9 +18,12 @@ public class StraferTeleOp extends LinearOpMode {
         DcMotor frontRight = hardwareMap.get(DcMotor.class, "rf");
         DcMotor backLeft = hardwareMap.get(DcMotor.class, "lb");
         DcMotor backRight = hardwareMap.get(DcMotor.class, "rb");
-        
+
+        // Define and Initialize Servos
+        Servo claw = hardwareMap.get(Servo.class, "claw");
+
         // Reverse one side of the motors
-        // If it goes in reverse, reverse the other side.
+        // If it goes in reverse, reverse the other side
         frontLeft.setDirection(DcMotorSimple.Direction.REVERSE);
         backLeft.setDirection(DcMotorSimple.Direction.REVERSE);
 
@@ -29,6 +33,8 @@ public class StraferTeleOp extends LinearOpMode {
         waitForStart();
 
         while (opModeIsActive()) {
+
+            //---------- Driver 1 ----------//
 
             // Driving controls
             double y = -gamepad1.left_stick_y; // Note: pushing stick forward gives negative value
@@ -48,6 +54,17 @@ public class StraferTeleOp extends LinearOpMode {
             frontRight.setPower(frontRightPower);
             backLeft.setPower(backLeftPower);
             backRight.setPower(backRightPower);
+
+
+            //---------- Driver 2 ----------//
+
+            if (gamepad2.x) {
+                claw.setPosition(.5); //open
+            }
+            else if (gamepad2.b) {
+                claw.setPosition(0); //close
+            }
+
         }
     }
 }
