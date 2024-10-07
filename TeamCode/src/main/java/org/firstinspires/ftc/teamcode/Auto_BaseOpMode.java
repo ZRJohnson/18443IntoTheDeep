@@ -279,5 +279,5 @@ public class Auto_BaseOpMode extends LinearOpMode{
         frontRight.setPower(-input);
         backRight.setPower(-input);
     }
-    
+
 }
