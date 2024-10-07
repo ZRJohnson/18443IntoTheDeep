@@ -19,6 +19,10 @@ public class StraferTeleOp extends LinearOpMode {
         DcMotor backLeft = hardwareMap.get(DcMotor.class, "lb");
         DcMotor backRight = hardwareMap.get(DcMotor.class, "rb");
 
+        DcMotor arm = hardwareMap.get(DcMotor.class, "arm");
+        arm.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        arm.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+
         // Define and Initialize Servos
         Servo claw = hardwareMap.get(Servo.class, "claw");
 
@@ -58,11 +62,21 @@ public class StraferTeleOp extends LinearOpMode {
 
             //---------- Driver 2 ----------//
 
+            if (gamepad2.dpad_up) { // Arm Up
+                arm.setPower(-1);
+            }
+            else if (gamepad2.dpad_down) { // Arm Down
+                arm.setPower(1);
+            }
+            else {
+                arm.setPower(0);
+            }
+
             if (gamepad2.x) {
-                claw.setPosition(.5); //open
+                claw.setPosition(.5); // open
             }
             else if (gamepad2.b) {
-                claw.setPosition(0); //close
+                claw.setPosition(0); // close
             }
 
         }
