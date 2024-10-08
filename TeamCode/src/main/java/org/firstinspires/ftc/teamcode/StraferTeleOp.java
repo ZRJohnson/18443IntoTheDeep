@@ -22,6 +22,7 @@ public class StraferTeleOp extends LinearOpMode {
         DcMotor arm = hardwareMap.get(DcMotor.class, "arm");
         arm.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         arm.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        arm.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
 
         // Define and Initialize Servos
         Servo wrist = hardwareMap.get(Servo.class, "wrist");
