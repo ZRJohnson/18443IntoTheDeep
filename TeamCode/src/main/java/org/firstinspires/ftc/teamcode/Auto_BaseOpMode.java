@@ -58,7 +58,7 @@ public class Auto_BaseOpMode extends LinearOpMode{
         // setup servos
         wrist = hardwareMap.get(Servo.class, "wrist");
         claw = hardwareMap.get(Servo.class, "claw");
-        
+
         frontLeft.setDirection(DcMotorSimple.Direction.REVERSE);
         backLeft.setDirection(DcMotorSimple.Direction.REVERSE);
         // wait for Start to be pressed
