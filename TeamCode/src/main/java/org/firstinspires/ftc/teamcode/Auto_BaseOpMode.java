@@ -4,6 +4,7 @@ import com.qualcomm.hardware.rev.RevHubOrientationOnRobot;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.IMU;
 
@@ -13,7 +14,8 @@ import org.firstinspires.ftc.robotcore.external.navigation.YawPitchRollAngles;
 @Autonomous(name="Auto_BaseOp", group="Auto")
 public class Auto_BaseOpMode extends LinearOpMode{
     // variable declaration & setup
-    DcMotor frontLeft, frontRight, backLeft, backRight;
+    DcMotor frontLeft, frontRight, backLeft, backRight, arm;
+    Servo wrist, claw;
 
     // motor counts per rotation (ticks/pulses per rotation)
     // check motor specs from manufacturer
@@ -50,9 +52,15 @@ public class Auto_BaseOpMode extends LinearOpMode{
         backLeft = hardwareMap.get(DcMotor.class, "lb");
         backRight = hardwareMap.get(DcMotor.class, "rb");
 
+        arm = hardwareMap.get(DcMotor.class, "arm");
+        arm.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+
+        // setup servos
+        wrist = hardwareMap.get(Servo.class, "wrist");
+        claw = hardwareMap.get(Servo.class, "claw");
+        
         frontLeft.setDirection(DcMotorSimple.Direction.REVERSE);
         backLeft.setDirection(DcMotorSimple.Direction.REVERSE);
-
         // wait for Start to be pressed
         waitForStart();
 
