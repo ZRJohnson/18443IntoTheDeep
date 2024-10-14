@@ -82,7 +82,7 @@ public class StraferTeleOp extends LinearOpMode {
             }
 
             if (gamepad2.y) {
-                wrist.setPosition(.5); // raise
+                wrist.setPosition(-1); // raise
             }
             else if (gamepad2.a) {
                 wrist.setPosition(1); // lower
