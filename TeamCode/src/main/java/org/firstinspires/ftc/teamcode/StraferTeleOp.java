@@ -75,7 +75,7 @@ public class StraferTeleOp extends LinearOpMode {
             }
 
             if (gamepad2.x) {
-                claw.setPosition(.5); // open
+                claw.setPosition(.2); // open
             }
             else if (gamepad2.b) {
                 claw.setPosition(0); // close
